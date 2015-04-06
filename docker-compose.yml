@@ -1,0 +1,18 @@
+web:
+  image: ricard0javier/nginx
+  ports:
+   - "80:80"
+  links:
+   - wp
+  volumes_from:
+   - nginx-data
+nginx-data:
+  image: ricard0javier/nginx-data
+wp:
+  image: ricard0javier/wp
+  ports:
+   - "9000:80"
+  volumes_from:
+   - wp-data
+wp-data:
+  image: ricard0javier/wp-data
