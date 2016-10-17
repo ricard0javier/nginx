@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  nginx:
+    image: library/nginx:1.11.5-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d:ro
+      - ./entrypoint.sh:/entrypoint.sh:ro
+      - /Users/ricardo/git/thecodestein.com/dist:/usr/share/nginx/html:ro
+    entrypoint: ["/entrypoint.sh"]
